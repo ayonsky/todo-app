@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Button, Form, Input } from "./TodoForm.style";
 
 function TodoForm(props) {
   const { editing } = props;
@@ -30,25 +31,24 @@ function TodoForm(props) {
   };
 
   return (
-    <form
-      className={"todo-form"}
+    <Form
       onSubmit={(e) => {
         e.preventDefault();
         handleSubmit(e);
       }}
     >
-      <input
+      <Input
         ref={taskInputRef}
-        className={"todo-input"}
         type={"text"}
         placeholder={"Add a task!"}
         value={task}
         onChange={handleChange}
+        editing={editing}
       />
-      <button className={"todo-button"}>
+      <Button editing={editing}>
         {editing ? "Save" : "Add task"}
-      </button>
-    </form>
+      </Button>
+    </Form>
   );
 }
 

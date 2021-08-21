@@ -1,17 +1,18 @@
 import React from "react";
 import { BiTrash, BiEdit } from "react-icons/bi";
+import { IconsDiv, TodoRow } from "./Todo.style";
 
 function Todo(props) {
   const { todo = {}, toggleTodo, removeTodo, editing } = props;
   const { id, name, isComplete = false } = todo;
 
   return (
-    <div
-      className={isComplete ? "todo-row complete" : "todo-row"}
+    <TodoRow
       onClick={() => toggleTodo && toggleTodo(id)}
+      isComplete={isComplete}
     >
       <div key={id}>{name}</div>
-      <div className={"todo-icons"}>
+      <IconsDiv>
         <BiTrash
           onClick={(e) => {
             e.stopPropagation();
@@ -24,8 +25,8 @@ function Todo(props) {
             editing && editing(todo);
           }}
         />
-      </div>
-    </div>
+      </IconsDiv>
+    </TodoRow>
   );
 }
 

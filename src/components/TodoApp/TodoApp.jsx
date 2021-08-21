@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TodoForm from "../TodoForm/TodoForm";
 import TodoList from "../TodoList/TodoList";
+import { Title } from "./TodoApp.style";
 
 function TodoApp() {
   const [todos, setTodos] = useState([]);
@@ -49,8 +50,8 @@ function TodoApp() {
   };
 
   return (
-    <div className={"todo-list"}>
-      <h1>What's the plan for today</h1>
+    <div>
+      <Title>What's the plan for today</Title>
       <TodoForm onSubmit={addTodo} />
       {editing ? (
         <TodoForm editing={editing} onSubmit={editTodo} />

@@ -1,12 +1,15 @@
 import React from "react";
 import TodoApp from "./components/TodoApp/TodoApp";
-import "./App.css";
+import { GlobalStyles, AppContainer } from "./App.style";
 
 function App() {
   return (
-    <div className="todo-app">
-      <TodoApp />
-    </div>
+    <>
+      <GlobalStyles />
+      <AppContainer>
+        <TodoApp />
+      </AppContainer>
+    </>
   );
 }
 
