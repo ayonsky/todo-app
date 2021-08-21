@@ -6,6 +6,7 @@ function TodoForm(props) {
   const [task, setTask] = useState(editing ? editing.name : "");
   const taskInputRef = useRef(null);
 
+  // every time the component renders, it will set the focus to the input
   useEffect(() => {
     taskInputRef.current.focus();
   });
@@ -44,7 +45,9 @@ function TodoForm(props) {
         value={task}
         onChange={handleChange}
       />
-      <button className={"todo-button"}> Add task</button>
+      <button className={"todo-button"}>
+        {editing ? "Save" : "Add task"}
+      </button>
     </form>
   );
 }
